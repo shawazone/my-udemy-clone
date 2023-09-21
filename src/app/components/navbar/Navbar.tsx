@@ -3,6 +3,7 @@ import { SafeUser } from "@/app/types";
 import { Link } from "@chakra-ui/react";
 import { User } from "@prisma/client";
 import React from "react";
+import {signOut} from 'next-auth/react'
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 interface UserMenuProps {
@@ -11,10 +12,10 @@ interface UserMenuProps {
 
 export default function Navbar({ myUser }: UserMenuProps) {
   return (
-    <div className="shadow-xl bg-white z-[-9999] sticky px-2">
+    <div className="shadow-xl bg-white z-[1] sticky px-2">
       <div className=" flex items-center justify-between gap-2">
         <div className="flex items-center gap-6 flex-1 relative">
-          <Link href="/">
+          <Link href='/'>
             <img src="/logo.svg" alt="Logo" width={91} height={34}></img>
           </Link>
 
@@ -49,10 +50,10 @@ export default function Navbar({ myUser }: UserMenuProps) {
                {!myUser && (
                      <>
                         <div>
-                            <Link href="/login" className="py-2 px-6 border-black border-[1px]">Login</Link>
+                           <button> <Link href='/login' className="py-2 px-6 border-black border-[1px]">Login</Link></button>
                         </div>
                         <div>
-                        <Link href="/register" className="py-2 px-6 border-black border-[1px]">Sign up</Link>
+                        <Link href='/register' className="py-2 px-6 border-black border-[1px]">Sign up</Link>
                         </div>
                      </>
 
@@ -60,9 +61,12 @@ export default function Navbar({ myUser }: UserMenuProps) {
 
                {myUser && (
                    <div className="w-[40px] h-[40px] rounded-full bg-black flex-center justify-center text-white cursor-pointer">
-                        <span></span>
-                        <span></span>
+                        <span>{myUser.name.at(0)?.toUpperCase()}</span>
+                        <span>{myUser.name.at(0)?.toUpperCase()}</span>
+                        <button className="py-2 px-6 border-black border-[1px]" onClick={()=>signOut()} >Log out</button>
                    </div>
+                   
+                   
                )}
            </div>
         </div>
