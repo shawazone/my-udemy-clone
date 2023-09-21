@@ -1,8 +1,15 @@
 'use client'
+import { SafeUser } from '@/app/types';
 import { Link } from '@chakra-ui/react'
+import { User } from '@prisma/client'
 import React from 'react'
 
-export default function Navbar() {
+interface UserMenuProps {
+  myUser: SafeUser | null;
+}
+
+
+export default function Navbar({myUser}: UserMenuProps) {
   return (
     <div className='shadow-xl bg-white z-[-9999] sticky px-2'>
         <div className=' flex items-center justify-between gap-2'>
