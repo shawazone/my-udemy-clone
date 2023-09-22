@@ -66,7 +66,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
 
                {myUser && (
                 <div className="flex ">
-                     <button className="py-1 px-2 border-black border-[1px]" onClick={()=>signOut()} >Log out</button>
+                     {/* <button className="py-1 px-2 border-black border-[1px]" onClick={()=>signOut()} >Log out</button> */}
                    <div onClick={() => setUserMenuOpen(prev =>!prev)} className="w-[40px] h-[40px] rounded-full bg-black flex  justify-center items-center text-white cursor-pointer mx-3" >
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
@@ -79,7 +79,9 @@ export default function Navbar({ myUser }: UserMenuProps) {
 
                {UserMenuOpen && (
                 <div className="absolute bottom-0 top-20 right-20 ">
-                    <UserMenu/>
+                    <UserMenu
+                    currentUser= {myUser}
+                    />
                 </div>
                )}
            </div>
