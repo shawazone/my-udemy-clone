@@ -2,15 +2,20 @@
 import { SafeUser } from "@/app/types";
 import { Link } from "@chakra-ui/react";
 import { User } from "@prisma/client";
-import React from "react";
+import React, { useState } from "react";
 import {signOut} from 'next-auth/react'
 import { MdOutlineShoppingCart } from "react-icons/md";
+import UserMenu from "./UserMenu";
 
 interface UserMenuProps {
   myUser: SafeUser | null;
 }
 
 export default function Navbar({ myUser }: UserMenuProps) {
+
+
+  const [UserMenuOpen , setUserMenuOpen] = useState(false);
+
   return (
     <div className="shadow-xl bg-white z-[1] sticky px-2">
       <div className=" flex items-center justify-between gap-2">
@@ -62,13 +67,20 @@ export default function Navbar({ myUser }: UserMenuProps) {
                {myUser && (
                 <div className="flex ">
                      <button className="py-1 px-2 border-black border-[1px]" onClick={()=>signOut()} >Log out</button>
-                   <div className="w-[40px] h-[40px] rounded-full bg-black flex  justify-center items-center text-white cursor-pointer mx-3">
+                   <div onClick={() => setUserMenuOpen(prev =>!prev)} className="w-[40px] h-[40px] rounded-full bg-black flex  justify-center items-center text-white cursor-pointer mx-3" >
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
                    </div>
                 </div>
                    
                    
+               )}
+
+
+               {UserMenuOpen && (
+                <div className="absolute bottom-0 top-20 right-20 ">
+                    <UserMenu/>
+                </div>
                )}
            </div>
         </div>
