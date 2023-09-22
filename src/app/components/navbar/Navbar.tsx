@@ -60,11 +60,13 @@ export default function Navbar({ myUser }: UserMenuProps) {
                )}
 
                {myUser && (
-                   <div className="w-[40px] h-[40px] rounded-full bg-black flex-center justify-center text-white cursor-pointer">
+                <div className="flex ">
+                     <button className="py-1 px-2 border-black border-[1px]" onClick={()=>signOut()} >Log out</button>
+                   <div className="w-[40px] h-[40px] rounded-full bg-black flex  justify-center items-center text-white cursor-pointer mx-3">
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
                         <span>{myUser.name.at(0)?.toUpperCase()}</span>
-                        <button className="py-2 px-6 border-black border-[1px]" onClick={()=>signOut()} >Log out</button>
                    </div>
+                </div>
                    
                    
                )}
