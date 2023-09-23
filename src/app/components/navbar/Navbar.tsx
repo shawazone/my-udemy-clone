@@ -51,7 +51,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
               {" "}
               <MdOutlineShoppingCart className="h-6 w-10"></MdOutlineShoppingCart>
             </Link>
-            <div>69</div>
+            <div className="absolute -right-1 -bottom-2 bg-blue-500 rounded-full w-6 h-6 flex justify-center items-center text-white ">69</div>
           </div>
         </div>
 
