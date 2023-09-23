@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
 interface UserMenuProps {
-  currentUser: SafeUser | null
+  currentUser: SafeUser | null,
+  closeUserMenu: () => void,
 }
 
 
-const UserMenu = ({currentUser}:UserMenuProps) => {
+const UserMenu = ({currentUser,closeUserMenu}:UserMenuProps) => {
  const router = useRouter()
 
   return (
@@ -28,7 +29,7 @@ const UserMenu = ({currentUser}:UserMenuProps) => {
         </div>
              <div className='flex flex-col gap-3 font-light'>
               {User.map((item,index) => ( 
-                <div key={item.name}>
+                <div key={item.name} onClick={closeUserMenu}>
                      <Link href={item.link}>{item.name}</Link>
                      
                 </div>

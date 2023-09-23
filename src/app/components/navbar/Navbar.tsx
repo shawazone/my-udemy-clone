@@ -13,8 +13,13 @@ interface UserMenuProps {
 
 export default function Navbar({ myUser }: UserMenuProps) {
 
-
   const [UserMenuOpen , setUserMenuOpen] = useState(false);
+
+
+  const closeUserMenu = () => {
+    setUserMenuOpen(false)
+  }
+
 
   return (
     <div className="shadow-xl bg-white z-[1] sticky px-2">
@@ -81,6 +86,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
                 <div className="absolute bottom-0 top-20 right-20 ">
                     <UserMenu
                     currentUser= {myUser}
+                    closeUserMenu={closeUserMenu}
                     />
                 </div>
                )}
