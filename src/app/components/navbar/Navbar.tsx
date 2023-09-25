@@ -32,6 +32,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
           <form className="lg: flex-1 lg:flex hidden ">
             <input
               type="text"
+              placeholder="Search for anything..."
               className="w-full p-3 font-light bg-white rounded-full border-black border-[1px] outline-none"
             />
           </form>
