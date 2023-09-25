@@ -1,11 +1,17 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import SliderMain from './components/SliderMain'
+
+const images = [
+  "/a.jpg",
+  "/b.jpg",
+]
+
 
 export default function Home() {
   return (
-    <main>
-      uwu
-       <Link href='/login' className="py-2 px-6 border-black border-[1px]">Login</Link>
+    <main className='w-[100%]'>
+      <SliderMain 
+      images={images}
+      />
 
     </main>
   )
