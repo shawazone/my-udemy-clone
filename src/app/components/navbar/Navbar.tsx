@@ -44,7 +44,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
           </div>
 
           <div>
-            <Link href="/">Teach on Udemy</Link>
+            <Link href="/create">Teach on Udemy</Link>
           </div>
 
           <div className="relative">
