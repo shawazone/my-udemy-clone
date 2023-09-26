@@ -10,6 +10,7 @@ interface CarouselProps {
 export default function SliderMain({images}:CarouselProps) {
 
     const [current,setCurrent] = useState(0)
+    
 
     const currentImage = images[current]
 
@@ -31,7 +32,7 @@ export default function SliderMain({images}:CarouselProps) {
     <div className="relative pb-16">
         <div>
             <button onClick={prevImage} className="absolute left-[2%] top-[50%] z-[40]"><BsArrowLeft/></button>
-            <img src={currentImage} alt={`Image ${current + 1}`} className="h-[500px] object-cover w-full"/>
+            <img src={currentImage} alt={`Image ${current + 1}`} className="h-[500px] object-cover w-full test"/>
             {current === 1 && (
                 <div className="absolute top-[20%] left-[5%] bg-white p-6 max-w-[450px]">
                      <h1 className="my-4 text-[2rem] font-bold">Learning that gets you</h1>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.test {
+  transition: transform 2s ease; /* Add a smooth transition effect */
+  animation: slideIn 0.5s ease-in-out;  
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -25,3 +29,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
