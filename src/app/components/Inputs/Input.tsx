@@ -2,7 +2,7 @@
 
 interface InputsProps {
   type: string;
-  value: string;
+  value: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
   textarea: boolean;

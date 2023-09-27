@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Inputs from '../components/Inputs/Inputs'
+import Input from '../components/Inputs/Input'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -50,8 +50,8 @@ const page = () => {
       <form onSubmit={onSubmit} className='text-center'>
         <div className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>
           <p>welcome to the <span className='text-pink-400'>uwu</span> login page </p>
-        <Inputs placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email} textarea={false} big={false}/>
-        <Inputs placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password} textarea={false} big={false}/>
+        <Input placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email} textarea={false} big={false}/>
+        <Input placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password} textarea={false} big={false}/>
          <div className=' flex justify-center items-center'>
 
         <button type='submit'  disabled={loading}  className=' text-gray-100 bg-blue-600 w-20 h-8'  >submit</button>

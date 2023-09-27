@@ -1,7 +1,7 @@
 'use client'
 
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import Inputs from '../components/Inputs/Inputs'
+import Input from '../components/Inputs/Input'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -58,9 +58,9 @@ export default function page() {
   return (
     <form onSubmit={onSubmit} className='text-center'>
         <div className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>
-        <Inputs placeholder='Name' id='name' type='text' name='name' onChange={handleChange} value={state.name} textarea={false} big={false}/>
-        <Inputs placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email} textarea={false} big={false}/>
-        <Inputs placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password} textarea={false} big={false}/>
+        <Input placeholder='Name' id='name' type='text' name='name' onChange={handleChange} value={state.name} textarea={false} big={false}/>
+        <Input placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email} textarea={false} big={false}/>
+        <Input placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password} textarea={false} big={false}/>
          <div className=' flex justify-center items-center'>
 
         <button type='submit'  disabled={loading}  className=' text-gray-100 bg-blue-600 w-20 h-8'  >submit</button>
