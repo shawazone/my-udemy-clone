@@ -1,9 +1,10 @@
 'use client'
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Input from '../components/Inputs/Input'
 import Button from '../components/Button'
 import ImageUploader from '../components/Inputs/ImageUploader'
-
+import axios from 'axios'
+import {useRouter} from 'next/navigation'
 interface initialValue {
   name: string;
   imageSrc: string;
@@ -26,7 +27,7 @@ export default function page(initialValue: initialValue) {
 
   
   const [state, setState] = useState(initialValue)
-  
+  const router  = useRouter()
 
   const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     setState({...state, [event.target.name]: event.target.value})
@@ -41,9 +42,27 @@ export default function page(initialValue: initialValue) {
   }
 
 
+  const onSubmit = (e:FormEvent) => {
+
+
+    e.preventDefault();
+
+    axios.post('/api/course', state)
+    .then(() => {
+      router.push('/')
+
+    })
+    .catch((err) => {
+      throw new Error(err)
+    })
+    // .finally(() => {
+    //   setState(initialValue)
+    // })
+  }
+
   return (
     <div className='flex justify-center'>
-        <form className='w-[600px] h-[700px] py-12 flex-col items-center gap-4'>
+        <form className='w-[600px] h-[700px] py-12 flex-col items-center gap-4' onSubmit={onSubmit}>
           <div className='w-[500px]'>
           <ImageUploader value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc',value)}/>
           </div>
