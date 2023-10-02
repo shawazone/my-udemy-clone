@@ -13,7 +13,7 @@ export default function Home() {
       <SliderMain 
       images={images}
       />
-
+uwu
     </main>
   )
 }
