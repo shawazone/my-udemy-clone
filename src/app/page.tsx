@@ -1,6 +1,6 @@
 import SliderMain from './components/SliderMain'
 import getAllCourses from './actions/getAllCourses';
-
+import CourseComponent from './components/CourseComponent';
 
 const images = [
   "/a.jpg",
@@ -26,7 +26,13 @@ export default async function Home({searchParams}:HomeProps) {
       <div>
 
           <div className='flex flex-wrap px-8'>
-          <CourseComponent/>
+            {courses.map((item:any) => (
+              <CourseComponent
+                key={item.id}
+                data={item}          
+
+                />
+            ))}
 
           
           </div>
