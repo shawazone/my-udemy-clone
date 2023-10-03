@@ -1,4 +1,6 @@
 import SliderMain from './components/SliderMain'
+import getAllCourses from './actions/getAllCourses';
+
 
 const images = [
   "/a.jpg",
@@ -6,14 +8,31 @@ const images = [
 ]
 
 
-export default function Home() {
+interface HomeProps {
+  searchParams : string
+}
+
+export default async function Home({searchParams}:HomeProps) {
+
+    const courses = await getAllCourses(searchParams);
+
   return (
     
     <main className='w-[100%]'>
       <SliderMain 
       images={images}
       />
-uwu
+
+      <div>
+
+          <div className='flex flex-wrap px-8'>
+            {courses.map((item:any)=>(
+              <div>{item.name}</div>
+            ))}
+          </div>
+      </div>
+
+
     </main>
   )
 }
