@@ -26,9 +26,9 @@ export default async function Home({searchParams}:HomeProps) {
       <div>
 
           <div className='flex flex-wrap px-8'>
-            {courses.map((item:any)=>(
-              <div>{item.name}</div>
-            ))}
+          <CourseComponent/>
+
+          
           </div>
       </div>
 
