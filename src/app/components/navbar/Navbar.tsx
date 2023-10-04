@@ -52,7 +52,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
             <img src="/logo.svg" alt="Logo" width={91} height={34}></img>
           </Link>
 
-          <form className="lg: flex-1 lg:flex hidden ">
+          <form className="lg: flex-1 lg:flex hidden "  onSubmit={onSearch}>
             <input
               type="text"
               placeholder="Search for anything..."
