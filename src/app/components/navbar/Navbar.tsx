@@ -2,10 +2,13 @@
 import { SafeUser } from "@/app/types";
 import { Link } from "@chakra-ui/react";
 import { User } from "@prisma/client";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import {signOut} from 'next-auth/react'
 import { MdOutlineShoppingCart } from "react-icons/md";
 import UserMenu from "./UserMenu";
+import { useSearchParams } from "next/navigation";
+import qs from 'query-string'
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   myUser: SafeUser | null;
@@ -14,13 +17,33 @@ interface UserMenuProps {
 export default function Navbar({ myUser }: UserMenuProps) {
 
   const [UserMenuOpen , setUserMenuOpen] = useState(false);
-
+  const params = useSearchParams();// for search
+  const [searchQuery , setSearchQuery] = useState('');
+  const router = useRouter();
 
   const closeUserMenu = () => {
     setUserMenuOpen(false)
   }
 
+  const onSearch = (e:FormEvent)  => { // ??????
+    e.preventDefault(); 
+       let currentQuery = {};
 
+       if(params) {
+        currentQuery = qs.parse(params.toString())
+       }
+       const updatedQuery:any ={
+        ...currentQuery,
+        result: searchQuery
+       }
+
+       const url = qs.stringifyUrl({
+        url: '/',
+        query: updatedQuery
+       },{skipNull:true})
+       router.push(`/search/${url}`)
+
+  }
   return (
     <div className="shadow-xl bg-white z-[1] sticky px-2">
       <div className=" flex items-center justify-between gap-2">
