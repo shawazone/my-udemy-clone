@@ -56,6 +56,7 @@ export default function Navbar({ myUser }: UserMenuProps) {
             <input
               type="text"
               placeholder="Search for anything..."
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full p-3 font-light bg-white rounded-full border-black border-[1px] outline-none"
             />
           </form>
