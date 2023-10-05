@@ -3,14 +3,14 @@ import prisma from '../lib/prismadb'
 export default async function getAllCourses(params:any) {
 
     try{
-            const {SearchResults} = params
+            const {result} = params
 
             let query:any = {};
 
-            if(SearchResults)   {
+            if(result)   {
            
                     query.name = {
-                        contains: SearchResults,
+                        contains: result,
                     
                     }
                 }
