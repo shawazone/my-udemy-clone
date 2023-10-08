@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function page() {
+
+const [uwu,setUwu] = useState("uwu")
   return (
     <div>
       uwu
