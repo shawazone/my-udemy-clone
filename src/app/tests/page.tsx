@@ -8,7 +8,7 @@ const [uwu,setUwu] = useState("uwu")// make sure to delete this
       uwu
       i will use this page to test components 
 
-      there is a problem with github.
+      there is a problem with github..
     </div>
   )
 }
