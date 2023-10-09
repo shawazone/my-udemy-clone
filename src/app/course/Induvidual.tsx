@@ -1,9 +1,9 @@
 'use client'
 
-import { SafeUser } from "@/app/types"
-import Button from "@/app/components/Button"
+import { SafeUser } from "../types"
+import Button from "../components/Button"
 import Image from "next/image"
-
+// import useBasket from "../hooks/useBasket"
 
 interface Props {
     author?:string,
@@ -26,9 +26,9 @@ export default function Induvidual({
 }:Props) {
 
 
-    const {hasBasket, toggleBasket} = useBasket({
-        currentUser,courseId
-    })
+    // const {hasBasket, toggleBasket} = useBasket({
+    //     currentUser,courseId
+    // })
 
   return (
     <div>
@@ -47,7 +47,10 @@ export default function Induvidual({
                     <p>$ {price}</p>
                     
                     <div className="flex flex-col gap-1 mt-4">
-                        <Button onClick={toggleBasket} type='button' label={`${hasBasket ? 'Remove from basket' : 'Add to basket'}`}/>
+                        <Button 
+                        // onClick={toggleBasket} type='button' 
+                        // label={`${hasBasket ? 'Remove from basket' : 'Add to basket'}`}
+                        />
                         <Button  type='button' label="Buy now" outline/>
                         <p className="text-[12px] text-gray-700 text-center border-t-2 py-2">30 day money back guarantee</p>
 
