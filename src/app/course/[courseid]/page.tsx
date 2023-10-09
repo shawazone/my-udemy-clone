@@ -5,7 +5,7 @@ import Induvidual from "../Induvidual";
 interface IParams {
     courseId?:string
 }
-
+// make sure that the I in courseid is capital
 export default async function page({params}: {params:IParams}) {
 
     const course = await getCourseById(params);
