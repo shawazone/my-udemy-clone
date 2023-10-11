@@ -14,12 +14,12 @@ interface HomeProps {
 
 export default async function Home({searchParams}:HomeProps) {
 
-    const courses = await getAllCourses(searchParams);
+    const courses = await getAllCourses(searchParams); // get all the searched courses from api
 
   return (
     
     <main className='w-[100%]'>
-      <SliderMain 
+      <SliderMain // ??
       images={images}
       />
 
@@ -27,7 +27,7 @@ export default async function Home({searchParams}:HomeProps) {
 
           <div className='flex flex-wrap px-8'>
             {courses.map((item:any) => (
-              <CourseComponent
+              <CourseComponent // ??
                 key={item.id}
                 data={item}          
 

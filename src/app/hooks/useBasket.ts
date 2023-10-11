@@ -42,3 +42,5 @@ const userBasket = ({courseId, currentUser}:IUseBasket) => {
     }
 
 }
+
+export default userBasket;

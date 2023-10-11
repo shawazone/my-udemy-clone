@@ -15,8 +15,8 @@ export default function SliderMain({images}:CarouselProps) {
     const currentImage = images[current]
 
     const prevImage = () => {
-        const isFirstSlide = current === 0;
-        const newIndex = isFirstSlide ? images.length - 1 : current - 1;
+        const isFirstSlide = current === 0; // isFirstSlide is true if current is 0
+        const newIndex = isFirstSlide ? images.length - 1 : current - 1; // if isFirstSlide is true, newIndex is images.length - 1, else newIndex is current - 1
         setCurrent(newIndex)
     }
 
