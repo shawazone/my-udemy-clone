@@ -12,9 +12,10 @@ import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   myUser: SafeUser | null;
+  basketItems : any;
 }
 
-export default function Navbar({ myUser }: UserMenuProps) {
+export default function Navbar({ myUser, basketItems }: UserMenuProps) {
 
   const [UserMenuOpen , setUserMenuOpen] = useState(false);
   const params = useSearchParams();// for search
@@ -72,11 +73,13 @@ export default function Navbar({ myUser }: UserMenuProps) {
           </div>
 
           <div className="relative">
-            <Link href="/">
+            <Link href="/basket">
               {" "}
               <MdOutlineShoppingCart className="h-6 w-10"></MdOutlineShoppingCart>
             </Link>
-            <div className="absolute -right-1 -bottom-2 bg-blue-500 rounded-full w-6 h-6 flex justify-center items-center text-white ">69</div>
+            <div className="absolute -right-1 -bottom-2 bg-blue-500 rounded-full w-6 h-6 flex justify-center items-center text-white ">
+              {basketItems?.length}
+            </div>
           </div>
         </div>
 

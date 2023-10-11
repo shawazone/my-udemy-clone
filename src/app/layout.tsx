@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import Loading from './loading'
 import Navbar from './components/navbar/Navbar'
 import myUser from './actions/getUser'
-
+import getBasketItems from './actions/getBasketItems'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -20,11 +20,14 @@ export default  async function RootLayout({
 
 
   const myCurrnetUser = await myUser()
+
+  const basketItems= await getBasketItems()
   return (
     <html lang="en">
       <body className={inter.className}>
        {/* <Loading/> */}
-       <Navbar
+       <Navbar 
+       basketItems={basketItems}
        myUser={myCurrnetUser}
        />
         {children}
