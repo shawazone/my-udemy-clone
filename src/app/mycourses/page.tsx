@@ -1,6 +1,6 @@
 import myUser from '../actions/getUser'
 import getCurrUserCourse from '../actions/getCurrUserCourse'
-
+import MyCourseClient from './MyCourseClient'
 import React from 'react'
 
 interface IParams{
@@ -20,13 +20,19 @@ export default async function page({params}: {params:IParams}) {
     const courses = await getCurrUserCourse()
 
     if(courses.length === 0){
-        return "No co "
+        return "No courses found to delete or update "
     }
 
   
     return (
-    <div>
-      
+        <div className="flex gap-6 px-12 py-8">
+        {courses.map((item) => (
+            <MyCourseClient
+            data={item}
+            currentUser={currentUser}
+            key={item.id}
+            />
+        ))}
     </div>
   )
 }

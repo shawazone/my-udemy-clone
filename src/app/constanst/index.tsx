@@ -11,7 +11,7 @@ export const User = [
 
     {
         name:"My courses",
-        link:'/mycoureses'
+        link:'/mycourses'
     },
 
     {
