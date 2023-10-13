@@ -26,18 +26,18 @@ interface CourseProps {
     price:string,
     description:string
 }   
-
-const initialState:InitalStateProps = {
-    name:'',
-    imageSrc:'',
-    author:'',
-    price: '',
-    description:''
-}
-
   
-export default function UpdateCourseComponent({name,price,courseId,description,author,imageSrc}:CourseProps) {
-
+  
+  
+  export default function UpdateCourseComponent({name,price,courseId,description,author,imageSrc}:CourseProps) {
+    
+  const initialState:InitalStateProps = {
+      name:name? name : '',
+      imageSrc:imageSrc? imageSrc : '',
+      author:author? author : '',
+      price:price? price : '',
+      description:description? description : '',
+  }
 
     const [state,setState] = useState(initialState)
     const [isLoading,setIsLoading] = useState(false)
