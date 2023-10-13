@@ -8,10 +8,19 @@ interface IParams{
 
 import React from 'react'
 
-export default function page({params}:{params:IParams}  ){
+export default async function page({params}:{params:IParams}  ){
+
+  const courses = await getCourseById(params)
+
   return (
     <div>
-      <UpdataCourseComponent />
+      <UpdataCourseComponent 
+        name={courses?.name}
+        imageSrc={courses?.imageSrc}
+        author={courses?.author}
+        price={courses?.price}
+        courseId={courses?.id}
+        description={courses?.description}/>
     </div>
   )
 }
