@@ -16,10 +16,13 @@ const UserMenu = ({currentUser,closeUserMenu}:UserMenuProps) => {
   return (
     <div className='flex flex-col h-[50vh] bg-white shadow-lg right-0 rounded-lg px-4 py-2 gap-6'>
         <div className='flex items-center gap-4'>
+           <Link href='/user'>
              <div className='w-[50px]  h-[50px] rounded-full bg-black flex items-center justify-center text-white cursor-pointer'>
              <span>{currentUser?.name?.at(0)?.toUpperCase()}</span>
              <span>{currentUser?.name?.at(0)?.toUpperCase()}</span>
              </div>
+
+           </Link>
 
              <div  className='flex flex-col'>
                 <span>{currentUser?.name}</span>

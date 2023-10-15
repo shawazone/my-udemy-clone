@@ -19,9 +19,8 @@ interface HomeProps {
            
                 {courses.map((item:any) => (
                     <CourseComponent
-                    key={item.id}
-                    data={item}
-                    />
+                        key={item.id}
+                        data={item} currentUser={null}                    />
                 ))}
                 
             
