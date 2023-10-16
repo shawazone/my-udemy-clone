@@ -9,6 +9,7 @@ import UserMenu from "./UserMenu";
 import { useSearchParams } from "next/navigation";
 import qs from 'query-string'
 import { useRouter } from "next/navigation";
+import { toast } from 'react-hot-toast';
 
 interface UserMenuProps {
   myUser: SafeUser | null;
@@ -21,6 +22,15 @@ export default function Navbar({ myUser, basketItems }: UserMenuProps) {
   const params = useSearchParams();// for search
   const [searchQuery , setSearchQuery] = useState('');
   const router = useRouter();
+
+  function addSomething() {
+    toast.success('message');
+    toast.error('message');
+    toast.loading('message');
+    toast('message');
+
+  }
+
 
   const closeUserMenu = () => {
     setUserMenuOpen(false)
@@ -47,6 +57,7 @@ export default function Navbar({ myUser, basketItems }: UserMenuProps) {
   }
   return (
     <div className="shadow-xl bg-white z-[1] sticky px-2">
+       {/* <button onClick={addSomething}>add something</button> */}
       <div className=" flex items-center justify-between gap-2">
         <div className="flex items-center gap-6 flex-1 relative">
           <Link href='/'>

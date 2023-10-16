@@ -5,6 +5,10 @@ import Button from '../components/Button'
 import ImageUploader from '../components/Inputs/ImageUploader'
 import axios from 'axios'
 import {useRouter} from 'next/navigation'
+import { toast } from "react-hot-toast"
+
+
+
 interface initialValue {
   name: string;
   imageSrc: string;
@@ -49,6 +53,7 @@ export default function page(initialValue: initialValue) {
 
     axios.post('/api/course', state)
     .then(() => {
+      toast.success('Course created successfully')
       router.push('/')
 
     })

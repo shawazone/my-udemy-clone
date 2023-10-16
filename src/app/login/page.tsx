@@ -5,6 +5,7 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 interface InitialStateProps {
     email:string,
@@ -34,6 +35,7 @@ const page = () => {
      })
      .then((callback) =>{
             if (callback?.ok) {
+                toast.success("Logged In")
                 router.refresh()
             }
             if (callback?.error) {
